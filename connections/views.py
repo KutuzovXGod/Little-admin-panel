@@ -12,6 +12,19 @@ def index(request):
     return render(request, 'list_agreements.html', context)
 
 
+class SearchByConnections(ListView):
+    template_name = 'list_agreements.html'
+    context_object_name = 'Connections'
+
+    def get_queryset(self):
+        return Connections.objects.filter(city__icontains=self.request.GET.get('q'))  #поиск не работает
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['q'] = self.request.GET.get('q')
+        return context
+
+
 class Search(ListView):
     template_name = 'list_agreements.html'
     context_object_name = 'Agreements'
@@ -23,6 +36,5 @@ class Search(ListView):
         context = super().get_context_data(*args, **kwargs)
         context['q'] = self.request.GET.get('q')
         return context
-
 
 

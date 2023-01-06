@@ -94,6 +94,7 @@
 <th class="cell100 column4">Дом</th>
 <th class="cell100 column5">Дата подключения</th>
 <th class="cell100 column6">Дата отключения</th>
+<th class="cell100 column6">Адрес к ФИО</th>
 </tr>
 </thead>
 {% for Connections in HM %}
@@ -104,6 +105,7 @@
 <td class="cell100 column9">{{ Connections.house }}</td>
 <td class="cell100 column10">{{ Connections.connection_date }}</td>
 <td class="cell100 column11">{{ Connections.disconnection_date }}</td>
+  <td class="cell100 column11">{{ Connections.agreement }}</td>
 {% endfor %}
 </tr>
 {% for Connections in object_list %}
@@ -114,6 +116,7 @@
 <td class="cell100 column9">{{ Connections.house }}</td>
 <td class="cell100 column10">{{ Connections.connection_date }}</td>
 <td class="cell100 column11">{{ Connections.disconnection_date }}</td>
+    <td class="cell100 column11">{{ Connections.agreement }}</td>
 {% endfor %}
 </tr>
 </tbody>
