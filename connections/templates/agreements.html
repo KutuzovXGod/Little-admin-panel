@@ -19,15 +19,15 @@
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'index' %}">Главный список</a>
+     <a class="navbar-brand" href="{% url 'index' %}">Главный список</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item">
-{#          <a class="nav-link active" aria-current="page" href="">#</a>#}
-        </li>
+{#        <li class="nav-item">#}
+{#          <a class="nav-link active" aria-current="page" href="#">Home</a>#}
+{#        </li>#}
         <li class="nav-item">
 {#          <a class="nav-link" href="#">Link</a>#}
         </li>
@@ -47,73 +47,30 @@
 <div class="wrap-table100">
 <div class="table100 ver1">
 <div class="table100-firstcol">
- {% if update %}
-    <p class="mt-4">Cтраница редактирования</p>
-        <form id="update_data" method="post">
 
-            {% csrf_token %}
-
-            {{form}}
-
-        </form>
-     <button form="update_data" type="submit" class="btn btn-primary">Обновить</button>
-    {% else %}
-
-
-</tbody>
-</table>
 </div>
 <div class="wrap-table100-nextcols js-pscroll">
 <div class="table100-nextcols">
 <table>
 <thead>
-<tr class="row100 head">
-<th class="cell100 column2">ФИО</th>
-<th class="cell100 column3">Почта</th>
-<th class="cell100 column4">Номер телефона</th>
-<th class="cell100 column5">Создания договора</th>
-<th class="cell100 column6">Заключение договора</th>
-    <th class="cell100 column2">Город</th>
-<th class="cell100 column3">Улица</th>
-<th class="cell100 column4">Дом</th>
-<th class="cell100 column5">Дата подключения</th>
-<th class="cell100 column6">Дата отключения</th>
-<th class="cell100 column7">&emsp;&emsp;&emsp;</th>
+    <tr class="row100 head">
+    <th class="cell100 column2">ФИО</th>
+    <th class="cell100 column3">Почта</th>
+    <th class="cell100 column4">Номер телефона</th>
+    <th class="cell100 column5">Создания договора</th>
+    <th class="cell100 column6">Заключение договора</th>
 </tr>
 </thead>
-{% for connection in index %}
+{% for agreement in agreements %}
 <tbody>
 <tr class="row100 body">
-    <td class="cell100 column2"><a href="{% url 'agreements' connection.agreement.id %}">{{ connection.agreement.username }}</a></td>
-    <td class="cell100 column3">{{ connection.agreement.email }}</td>
-    <td class="cell100 column4">{{ connection.agreement.phone_number }}</td>
-    <td class="cell100 column5">{{ connection.agreement.creation_date }}</td>
-    <td class="cell100 column6">{{ connection.agreement.conclusion_date }}</td>
-    <td class="cell100 column6">{{ connection.city }}</td>
-    <td class="cell100 column6">{{ connection.street }}</td>
-    <td class="cell100 column6">{{ connection.house }}</td>
-    <td class="cell100 column6">{{ connection.connection_date }}</td>
-    <td class="cell100 column6">{{ connection.disconnection_date }}</td>
-    <td><a href="{% url 'update_page' connection.agreement.id%}"><img src="{% static '/img/img.png' %}"  width="70%" height="50"/></a></td>
+    <td class="cell100 column2">{{ agreement.username }}</td>
+    <td class="cell100 column3">{{ agreement.email }}</td>
+    <td class="cell100 column4">{{ agreement.phone_number }}</td>
+    <td class="cell100 column5">{{ agreement.creation_date }}</td>
+    <td class="cell100 column6">{{ agreement.conclusion_date }}</td>
 </tr>
 {% endfor %}
-{% endif %}
-  {% for item in object_list %}
-      <tbody>
-       <tr class="row100 body">
-         <td class="cell100 column2">{{ item.agreement.username }}</td>
-         <td class="cell100 column3">{{ item.agreement.email }}</td>
-         <td class="cell100 column4">{{ item.agreement.phone_number }}</td>
-         <td class="cell100 column5">{{ item.agreement.creation_date }}</td>
-         <td class="cell100 column5">{{ item.agreement.conclusion_date }}</td>
-         <td class="cell100 column5">{{ item.city }}</td>
-         <td class="cell100 column5">{{ item.street }}</td>
-         <td class="cell100 column5">{{ item.house }}</td>
-         <td class="cell100 column5">{{ item.connection_date }}</td>
-         <td class="cell100 column5">{{ item.disconnection_date }}</td>
-       </tr>
-     {% endfor %}
- </tbody>
 
 </table>
 </div>

@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from connections.views import index, SearchByConnections, Search
+from connections.views import index, Search, show_agreement, update_page
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name = 'admin'),
     path('', index, name='index'),
     path('search/', Search.as_view(), name='search'),
-    path('search/', SearchByConnections.as_view(), name='search'),
+    path('agreements/<agreement_id>/', show_agreement, name='agreements'),
+    path('update_page/<int:pk>', update_page, name='update_page'),
+
 ]
