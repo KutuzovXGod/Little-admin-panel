@@ -11,6 +11,10 @@ class Agreements(models.Model):
     def __str__(self):
         return str(self.username)
 
+    class Meta:
+        verbose_name = 'Договор'
+        verbose_name_plural = 'Договоры'
+
 
 class Connections(models.Model):
     city = models.CharField(max_length=128)
@@ -21,4 +25,8 @@ class Connections(models.Model):
     agreement = models.OneToOneField(Agreements, on_delete=models.CASCADE, primary_key=True)
 
     def __str__(self):
-        return str(self.city)
+        return str(self.city), str(self.house)
+
+    class Meta:
+        verbose_name = 'Адрес'
+        verbose_name_plural = 'Адреса'
