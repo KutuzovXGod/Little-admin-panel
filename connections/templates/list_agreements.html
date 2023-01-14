@@ -52,8 +52,10 @@
         <form id="update_data" method="post">
 
             {% csrf_token %}
+            {{ form1 }}
+            {{ form }}
 
-            {{form}}
+
 
         </form>
      <button form="update_data" type="submit" class="btn btn-primary">Обновить</button>
@@ -94,7 +96,7 @@
     <td class="cell100 column6">{{ connection.house }}</td>
     <td class="cell100 column6">{{ connection.connection_date }}</td>
     <td class="cell100 column6">{{ connection.disconnection_date }}</td>
-    <td><a href="{% url 'update_page' connection.agreement.id%}"><img src="{% static '/img/img.png' %}"  width="70%" height="50"/></a></td>
+    <td><a href="{% url 'edit_page' connection.agreement.id%}"><img src="{% static '/img/img.png' %}"  width="70%" height="50"/></a></td>
 </tr>
 {% endfor %}
 {% endif %}
