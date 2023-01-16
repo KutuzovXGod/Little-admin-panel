@@ -5,7 +5,7 @@
 ### Как установить
 
 Python3 должен быть уже установлен. 
-Скачать django через терминал pip install Django==4.1.4
+Скачать зависимости в  requirements.txt в терминале через команду pip install -r requirements.txt
 
 
 ```
