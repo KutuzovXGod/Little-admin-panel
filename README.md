@@ -5,7 +5,7 @@
 ### Как установить
 
 Python3 должен быть уже установлен. 
-Скачать зависимости в  requirements.txt в терминале через команду pip install -r requirements.txt
+Скачать зависимости в  requirements.txt в терминале через команду pip install -r requirements.txt или просто pip install Django==4.1.5
 
 
 ```
@@ -18,4 +18,4 @@ https://docs.djangoproject.com/en/4.1/intro/tutorial01/
 
 ### Цель проекта
 
-Код написан для технической части интеревью для компании Realсom
+Код написан в учебных целях, для реализации админ панели
